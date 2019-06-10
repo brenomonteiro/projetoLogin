@@ -1,0 +1,33 @@
+<form class="was-validated form-row container" #cadastro="ngForm" (ngSubmit)="salvar()">
+  <div class="col-md-1 mb-3">
+    <label for="codigo">Código</label>
+    <input type="text" [(ngModel)]="cd.codigo" class="form-control" disabled name="codigo">
+  </div>
+  <div class="col-md-4 mb3">
+    <label for="artista">Nome do Artista ou Banda</label>
+    <input type="text" [(ngModel)]="cd.artista" class="form-control is-valid" #artista="ngModel" name="artista"
+      required>
+    <div [hidden]="artista.valid" class="invalid-feedback">
+      Informe o nome do Artista ou da Banda!
+    </div>
+  </div>
+  <div class="col-md-4 mb-3">
+    <label for="album">Nome do Álbum</label>
+    <input type="text" [(ngModel)]="cd.album" class="form-control is-valid" #album="ngModel" name="album" required>
+    <div [hidden]="album.valid" class="invalid-feedback">
+      Informe o nome do Álbum!
+    </div>
+  </div>
+  <div class="col-md-3 mb3">
+    <label for="ano">Ano de lançamento</label>
+    <input type="text" [(ngModel)]="cd.ano" class="form-control is-valid" #ano="ngModel" name="ano" required>
+    <div [hidden]="ano.valid" class="invalid-feedback">
+      Informe o Ano de lançamento do Álbum!
+    </div>
+  </div>
+  <div class="container">
+    <button class="btn btn-success" type="submit" [disabled]="cadastro.form.invalid">Enviar</button>
+    <button class="btn btn-danger" type="button" [hidden]="isNew" (click)="excluir()">Excluir</button>
+    <button class="btn btn-warning" type="button" (click)="cancelar()">Cancelar</button>
+  </div>
+</form>

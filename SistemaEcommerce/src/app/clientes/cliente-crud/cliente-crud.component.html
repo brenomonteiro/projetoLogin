@@ -1,0 +1,25 @@
+<router-outlet></router-outlet>
+<div class="card border-secondary mb-3">
+  <div class="card-header">Cadastro de Clientes</div>
+</div>
+
+<ul class="nav nav-tabs" id="clienteTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="cadastro-tab" data-toggle="tab" href="#cadastro" role="tab"
+      aria-controls="tabCadastro" aria-selected="true">Cadastro</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="dados-tab" data-toggle="tab" href="#dados" role="tab" aria-controls="tabDados"
+      aria-selected="false">Dados</a>
+  </li>
+</ul>
+<div class="tab-content" id="clienteTabContent">
+  <div class="tab-pane fade show active" id="cadastro" role="tabpanel" aria-labelledby="cadastro-tab">
+    <app-cliente-form></app-cliente-form>
+  </div>
+  <div class="tab-pane fade" id="dados" role="tabDados" aria-labelledby="dados-tab">
+    <div class="tab-pane" id="dados" role="tabpanel">
+      <app-cliente-list></app-cliente-list>
+    </div>
+  </div>
+</div>

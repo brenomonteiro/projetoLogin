@@ -1,0 +1,41 @@
+<form class="was-validated form-row container" #cadastro="ngForm" (ngSubmit)="salvar()">
+
+  <div class="col-md-1 mb-3">
+    <label for="codigo">Código</label>
+    <input type="text" [(ngModel)]="livro.codigo" class="form-control" disabled name="codigo">
+  </div>
+  <div class="col-md-3 mb3">
+    <label for="obra">Nome da Obra</label>
+    <input type="text" [(ngModel)]="livro.obra" class="form-control is-valid" #obra="ngModel" name="obra" required>
+    <div [hidden]="obra.valid" class="invalid-feedback">
+      Informe o nome do Livro!
+    </div>
+  </div>
+  <div class="col-md-3 mb-3">
+    <label for="autor">Nome do Autor</label>
+    <input type="text" [(ngModel)]="livro.autor" class="form-control is-valid" #autor="ngModel" name="autor" required>
+    <div [hidden]="autor.valid" class="invalid-feedback">
+      Informe o nome do Autor!
+    </div>
+  </div>
+  <div class="col-md-3 mb3">
+    <label for="genero">Gênero</label>
+    <input type="text" [(ngModel)]="livro.genero" class="form-control is-valid" #genero="ngModel" name="genero"
+      required>
+    <div [hidden]="genero.valid" class="invalid-feedback">
+      Informe o Genero de lançamento do Álbum!
+    </div>
+  </div>
+  <div class="col-md-2 mb3">
+    <label for="isbn">ISBN</label>
+    <input type="text" [(ngModel)]="livro.isbn" class="form-control is-valid" #isbn="ngModel" name="isbn" required>
+    <div [hidden]="isbn.valid" class="invalid-feedback">
+      Informe o ISBN do Livro!
+    </div>
+  </div>
+  <div class="container">
+    <button class="btn btn-success" type="submit" [disabled]="cadastro.form.invalid">Enviar</button>
+    <button class="btn btn-danger" type="button" [hidden]="isNew" (click)="excluir()">Excluir</button>
+    <button class="btn btn-warning" type="button" (click)="cancelar()">Cancelar</button>
+  </div>
+</form>

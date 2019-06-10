@@ -1,0 +1,22 @@
+<input type="text" [(ngModel)]="searchText" class="form-control"
+placeholder="O que você está procurando?"><br>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th class="col-md-3">Código</th>
+      <th class="col-md-3">Nome do Filme</th>
+      <th class="col-md-3">Gênero do Filme</th>
+      <th class="col-md-3">Ano de lançamento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let filme of filmes">
+      <a [routerLink]="[filme.codigo]">
+      <td>{{ filme.codigo }}</td></a>
+      <td>{{ filme.nome }}</td>
+      <td>{{ filme.genero }}</td>
+      <td>{{ filme.ano }}</td>
+    </tr>
+  </tbody>
+</table>
+<span [hidden]="(filmes | filter: searchText).length != 0">Infelizmente não temos o que você está procurando</span>

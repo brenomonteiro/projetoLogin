@@ -1,0 +1,22 @@
+<input type="text" [(ngModel)]="searchText" class="form-control"
+placeholder="O que você está procurando?"><br>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Nome</th>
+      <th>Cargo</th>
+      <th>Endereço</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let clienteTabela of clientes | filter:searchText">
+      <a [routerLink]="[clienteTabela.codigo]">
+        <td>{{clienteTabela.codigo}}</td></a>
+        <td>{{clienteTabela.nome}}</td>
+        <td>{{clienteTabela.cargo}}</td>
+        <td>{{clienteTabela.endereco}}</td>
+    </tr>
+  </tbody>
+</table>
+<span [hidden]="(clientes | filter: searchText).length != 0">Infelizmente não temos o que você está procurando</span>

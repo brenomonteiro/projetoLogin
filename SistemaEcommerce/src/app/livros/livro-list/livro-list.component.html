@@ -1,0 +1,25 @@
+<input type="text" [(ngModel)]="searchText" class="form-control"
+placeholder="O que você está procurando?"><br>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th class="col-md-1">Código</th>
+      <th class="col-md-3">Nome do Obra</th>
+      <th class="col-md-3">Nome do Autor</th>
+      <th class="col-md-3">Genero do Livro</th>
+      <th class="col-md-2">ISBN do Livro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let livro of livros">
+      <a [routerLink]="[livro.codigo]">
+        <td>{{ livro.codigo }}</td>
+      </a>
+      <td>{{ livro.obra }}</td>
+      <td>{{ livro.autor }}</td>
+      <td>{{ livro.genero }}</td>
+      <td>{{ livro.isbn }}</td>
+    </tr>
+  </tbody>
+</table>
+<span [hidden]="(livros | filter: searchText).length != 0">Infelizmente não temos o que você está procurando</span>

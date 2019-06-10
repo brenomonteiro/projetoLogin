@@ -1,0 +1,40 @@
+<form class="was-validated form-row" #cadastro="ngForm" (ngSubmit)="salvar()">
+  <div class="col-md-1 mb-3">
+    <label for="codigo">Código</label>
+    <input type="text" [(ngModel)]="cliente.codigo" class="form-control" 
+    name="codigo" disabled>
+  </div>
+
+  <div class="col-md-4 mb-3">
+    <label for="nome">Nome</label>
+    <input type="text" [(ngModel)]="cliente.nome" class="form-control is-valid" 
+    #nome="ngModel" name="nome" minlength="5" required>
+    <div [hidden]="nome.valid" class="invalid-feedback">
+      Digite o nome.
+    </div>
+  </div>
+
+  <div class="col-md-4 mb-3">
+    <label for="cargo">Cargo</label>
+    <input type="text" [(ngModel)]="cliente.cargo" class="form-control is-valid"
+    #cargo="ngModel" name="cargo" required>
+    <div [hidden]="cargo.valid" class="invalid-feedback">
+      Digite o cargo.
+    </div>
+  </div>
+
+  <div class="col-md-5 mb-3">
+    <label for="endereco">Endereço</label>
+    <input type="text" [(ngModel)]="cliente.endereco" class="form-control is-valid"
+    #endereco="ngModel" name="endereco" required>
+    <div [hidden]="endereco.valid" class="invalid-feedback">
+      Digite o endereço.
+    </div>
+  </div>
+
+  <div class="container">
+    <button class="btn btn-success" type="submit" [disabled]="cadastro.form.invalid">Enviar</button>
+    <button class="btn btn-danger" type="button" [hidden]="isNew" (click)="excluir()">Excluir</button>
+    <button class="btn btn-warning" type="button" (click)="cancelar()">Cancelar</button>
+  </div>
+</form>
